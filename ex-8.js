@@ -373,6 +373,23 @@ const bills = [
     },
 ];
 
-// Start coding here
-
-const totalPaidByLocation;
+  function getTotalPaidByLocation(bills) {
+    const totalPaidByLocation = {};
+  
+    bills.forEach((bill) => {
+      const location = bill.location;
+      const total = bill.total;
+  
+      if (totalPaidByLocation[location]) {
+        totalPaidByLocation[location] += total;
+      } else {
+        totalPaidByLocation[location] = total;
+      }
+    });
+  
+    return totalPaidByLocation;
+  }
+  
+  const result = getTotalPaidByLocation(bills);
+  console.log(result);
+  
